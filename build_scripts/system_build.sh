@@ -31,7 +31,7 @@ set_ccache_profile()
 build_env()
 {
 	local pre_dir=$(pwd)
-	cd ${IN_WORKSPACE}/cd569_project
+	cd ${IN_WORKSPACE}
 	source build/envsetup.sh
 	lunch $IN_LUNCH_NAME
 	set_ccache_profile
