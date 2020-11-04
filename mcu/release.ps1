@@ -27,7 +27,8 @@ else {
     exit(1)
 }
 
-$release_path="${release_upload_path}\${branch}\${tag_last}_${debug_folder}" -replace "/","\"
+$date_time=$(Get-Date -Format "yyyyMMdd")
+$release_path="${release_upload_path}\${branch}\${tag_last}_${debug_folder}_${date_time}" -replace "/","\"
 
 Remove-Item ${code_path} -force -recurse -ErrorAction "Continue"
 git clone ${code_url} -b ${tag} ${code_path}
