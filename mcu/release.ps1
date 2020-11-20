@@ -41,7 +41,7 @@ Write-Output "version:$version" >> $code_path\ReleaseNote.txt
 Write-Output "time:$(Get-Date)" >> $code_path\ReleaseNote.txt
 
 md $release_path
-Copy-Item $code_path\Build\RELWITHDEBINFO\* $release_path
+Copy-Item $code_path\Build\RELWITHDEBINFO\* $release_path -Recurse
 Copy-Item $code_path\ReleaseNote.txt $release_path
 
 Write-Output "release success"
