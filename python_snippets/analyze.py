@@ -13,15 +13,15 @@ def get_file_from_git_pull(git_pull_log):
     return file_list
 
 
-def write_data(data_list, data_file):
+def write_data(data_list, data_file, workspace):
     with open(data_file, "w") as f:
         for data in data_list:
-            f.write(data.strip()+"\n")
+            f.write(workspace.replace("\\", "/")+"/"+data.strip()+"\n")
 
 
-def write_qac_file_list(git_log, qac_file):
+def write_qac_file_list(git_log, qac_file, worksapce):
     change_list = get_file_from_git_pull(git_log)
-    write_data(change_list, qac_file)
+    write_data(change_list, qac_file, worksapce)
 
 
 if __name__ == "__main__":
