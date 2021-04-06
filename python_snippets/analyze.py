@@ -19,9 +19,16 @@ def write_data(data_list, data_file, workspace):
             f.write(workspace.replace("\\", "/")+"/"+data.strip()+"\n")
 
 
-def write_qac_file_list(git_log, qac_file, worksapce):
+def write_qac_file_list(git_log, qac_file, worksapce, gerrit_change):
     change_list = get_file_from_git_pull(git_log)
     write_data(change_list, qac_file, worksapce)
+    change_id = hanlde_change_form(gerrit_change)
+    return change_id
+
+
+def hanlde_change_form(change):
+    change = change.split("/")[-2]+"_"+change.split("/")[-1]
+    return change
 
 
 if __name__ == "__main__":
