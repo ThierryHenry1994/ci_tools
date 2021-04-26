@@ -2,6 +2,7 @@ import get_issue_from_remine
 import mail2reviewers
 import time
 import sys
+import fire
 
 
 def date_trans(raw_date):
@@ -26,13 +27,16 @@ def handle_mail_list(redmine_url, redmine_key, project, num):
     issue_list = get_issue_from_remine.get_issue_from_redmine(redmine_url, redmine_key, project)
     data_list = get_issue_from_remine.handle_issue_data(redmine_url, redmine_key, issue_list)
     for data in data_list:
-        '''
+
         review_date = date_trans(data["review_date"])
         now_date = date_trans(time.strftime("%Y-%m-%d"))
         if time_diff(review_date, now_date) == num:
-            print(data)
+            mail2reviewers.send_mail(num, data["issue_id"], data["subject"], data["reviewers"])
         '''
         if data["issue_id"] == 7026:
             mail2reviewers.send_mail(num, 7026, data["subject"], data["reviewers"])
+        '''
 
-handle_mail_list('https://redmine.bitech-auto.com/redmine', "1c159c411c8ed320899935a55779f8c22b2a0f13", "gmw_p03", 3)
+
+if __name__ == "__main__":
+    fire.Fire(handle_mail_list)
