@@ -43,7 +43,6 @@ def handle_issue_data(redmine_url, redmine_key, issue_list):
             data_dict["issue_id"] = ""
         if assign:
             data_dict["assign"] = assign
-            assign = get_mail_by_id(redmine_url, redmine_key, assign)
         else:
             data_dict["assign"] = ""
         if review_date:
@@ -51,7 +50,6 @@ def handle_issue_data(redmine_url, redmine_key, issue_list):
         else:
             data_dict["review_date"] = ""
         if reviewer_list:
-            reviewer_list.append(assign)
             data_dict["reviewers"] = reviewer_list
         else:
             data_dict["reviewers"] = ""
