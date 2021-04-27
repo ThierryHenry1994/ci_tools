@@ -31,6 +31,7 @@ def handle_mail_list(redmine_url, redmine_key, project, num):
         review_date = date_trans(data["review_date"])
         now_date = date_trans(time.strftime("%Y-%m-%d"))
         if time_diff(review_date, now_date) == num:
+            # print(data["issue_id"])
             mail2reviewers.send_mail(num, data["issue_id"], data["subject"], data["reviewers"])
         '''
         if data["issue_id"] == 7026:
@@ -40,3 +41,4 @@ def handle_mail_list(redmine_url, redmine_key, project, num):
 
 if __name__ == "__main__":
     fire.Fire(handle_mail_list)
+    #handle_mail_list('https://redmine.bitech-auto.com/redmine', "1c159c411c8ed320899935a55779f8c22b2a0f13", "gmw_p03", 3)
