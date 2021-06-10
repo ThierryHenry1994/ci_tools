@@ -34,8 +34,9 @@ def handle_issue_data(redmine_url, redmine_key, issue_list):
                     if custom_field["name"] == "Review预定日":
                         review_date = custom_field["value"]
                     if "评审者" in custom_field["name"]:
-                        if custom_field["value"] != "":
-                            reviewer_list.append(get_mail_by_id(redmine_url, redmine_key, custom_field["value"]))
+                        if "value" in custom_field.keys():
+                            if custom_field["value"] != "":
+                                reviewer_list.append(get_mail_by_id(redmine_url, redmine_key, custom_field["value"]))
 
         if issue_id:
             data_dict["issue_id"] = issue_id
