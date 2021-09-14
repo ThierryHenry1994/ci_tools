@@ -3,7 +3,7 @@ import time
 import fire
 
 def get_count_from_mysql():
-    db = MySQLdb.connect("10.179.48.90", "redmine_db_user", "Dk9HYb6ri2", "redmine")
+    db = MySQLdb.connect("10.179.48.90", "redmine_db_user", "@WSX1qaz", "redmine")
     cursor = db.cursor()
     sql = "SELECT count(*) from issues i WHERE project_id in (79,110,111,112,113,114,117,118,119) and status_id not in (5,6) and tracker_id =1"
     try:
