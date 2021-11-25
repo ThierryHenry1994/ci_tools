@@ -3,6 +3,7 @@ set WorkSpace=%1%
 rd /s /q code_build_target
 rd /s /q code_build_target_release
 set COMPILE_KIND=%2%
+set CGI_ROOT_PATH=%3%
 
 cd %WorkSpace%
 cd code
