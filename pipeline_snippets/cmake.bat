@@ -22,3 +22,7 @@ if %ret% neq 0 (
     echo "exec cmake.bat failed, please check it"
     exit 1
 )
+cd code
+cd cgi
+cd AssetLibraries
+call AssetPartition.bat
