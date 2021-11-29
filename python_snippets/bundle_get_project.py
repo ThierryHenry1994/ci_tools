@@ -21,12 +21,11 @@ def write_project_file(source_file,target_file):
                 print(project)
                 for i in project:
                     if "project" in i:
-                        if "ALL" in i:
+                        name = i.split(":")[1].split(",")
+                        if name[0] == "ALL":
                             for bundle in bundle_list:
                                 f.write(bundle + "\n")
                         else:
-                            name = i.split(":")[1].split(",")
-                            print(name)
                             for j in name:
                                 if j in bundle_list:
                                     f.write(j + "\n")
