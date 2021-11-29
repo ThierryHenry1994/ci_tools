@@ -27,8 +27,7 @@ if %ret% neq 0 (
 if (%3)==() (
 	echo "without cgi_path"
     
-)
-else (
+) else (
 	cd code
 	cd cgi
 	cd AssetLibraries
