@@ -27,6 +27,7 @@ def write_project_file(source_file,target_file):
                             for bundle in bundle_list:
                                 f.write(bundle + "\n")
                         else:
+                            print("this is",name[0])
                             for j in name:
                                 if j in bundle_list:
                                     f.write(j + "\n")
