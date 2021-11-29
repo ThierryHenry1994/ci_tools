@@ -23,6 +23,7 @@ def write_project_file(source_file,target_file):
                     if "project" in i:
                         name = i.split(":")[1].split(",")
                         if name[0] == "ALL":
+                            print("this is",name[0])
                             for bundle in bundle_list:
                                 f.write(bundle + "\n")
                         else:
