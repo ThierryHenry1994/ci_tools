@@ -8,7 +8,12 @@ def execCmd(cmd):
     text = r.read()
     r.close()
     return text
-
+def check_txt(project_file):
+    if os.path.getsize(file):
+        return True
+    else:
+        return False
+    
 def write_project_file(source_file,target_file):
     project_list =[]
 
@@ -33,6 +38,9 @@ def write_project_file(source_file,target_file):
                                     f.write(j + "\n")
                                 else:
                                     raise BaseException("param not in project name list!!! pls check it")
-
+    if check_txt(target_file):
+        print("======================get project name success========================")
+    else:
+        raise BaseException("=============commit message is not valid!!!! pls check it =================")
 #write_project_file("..\\git.txt","project.txt")
 fire.Fire(write_project_file)
