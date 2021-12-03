@@ -27,12 +27,13 @@ def write_project_file(source_file,target_file):
                 for i in project:
                     if "project" in i:
                         name = i.split(":")[1].split(",")
-                        if name[0] == "ALL":
+                        print(name)
+                        if name[0] == "All" or name[0] == "ALL":
                             print("this is",name[0])
                             for bundle in bundle_list:
                                 f.write(bundle + "\n")
                         else:
-                            print("this is",name[0])
+
                             for j in name:
                                 if j in bundle_list:
                                     f.write(j + "\n")
@@ -42,5 +43,5 @@ def write_project_file(source_file,target_file):
         print("======================get project name success========================")
     else:
         raise BaseException("=============commit message is not valid!!!! pls check it =================")
-#write_project_file("..\\git.txt","project.txt")
-fire.Fire(write_project_file)
+write_project_file("git.txt","project.txt")
+#fire.Fire(write_project_file)
