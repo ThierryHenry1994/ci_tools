@@ -9,7 +9,7 @@ def execCmd(cmd):
     r.close()
     return text
 def check_txt(project_file):
-    if os.path.getsize(file):
+    if os.path.getsize(project_file):
         return True
     else:
         return False
