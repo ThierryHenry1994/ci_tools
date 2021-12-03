@@ -43,5 +43,5 @@ def write_project_file(source_file,target_file):
         print("======================get project name success========================")
     else:
         raise BaseException("=============commit message is not valid!!!! pls check it =================")
-write_project_file("git.txt","project.txt")
-#fire.Fire(write_project_file)
+#write_project_file("git.txt","project.txt")
+fire.Fire(write_project_file)
