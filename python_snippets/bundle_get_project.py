@@ -1,7 +1,8 @@
 import os
 import fire
 
-bundle_list = ["EC24_C_T1_AUO", "EC24_C_T1_HX", "EC24_C_M1_AUO", "EC24_C_M1_HX"]
+bundle_list = ["A02_C_T1_TM", "A02_C_T1_AUO", "B06_C_T1_TM", "B06_C_T1_AUO", "A08_C_T1_TM", "A08_C_M1_TM", "A08_P_T1_TM", "A08_P_M1_TM", "EC24_C_T1_TM", "EC24_C_T1_AUO", "EC24_C_M1_TM", "EC24_C_M1_AUO", "V72_C_T1_TM", "V72_C_M1_TM", "V72_P_T1_TM", "V72_P_M1_TM", "B16_C_T1_TM", "B16_C_M1_TM", "D01_C_T1_TM", "D01_C_M2_TM", "D02_C_T1_TM", "D02_C_M2_TM", "CC02_C_T1_TM", "CC02_C_T1_TM", "CC02_C_M2_TM", "CC02_C_M2_TM", "CC03_C_T1_TM", "CC03_C_T1_TM", "CC03_C_M2_TM", "CC03_C_M2_TM", "V71_A_T2_BOE", "V71_A_M1_BOE"]
+
 # 执行BAT命令
 def execCmd(cmd):
     r = os.popen(cmd)
