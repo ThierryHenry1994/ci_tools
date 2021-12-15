@@ -1,0 +1,1 @@
+{"GAC_A88": {"01_MCU": ["code_build_target_release/RELEASE/A88.zip"], "02_Bootloader": [], "03.EEPROM": ["code/app/Eem/EEPROM_Map/*"], "04.ExternalFlash": ["code/cgi/AssetLibraries/output/*"], "05.Report": [], "06.Doc": []}}
