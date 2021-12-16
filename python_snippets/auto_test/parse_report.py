@@ -1,6 +1,6 @@
 import time
 import fire
-
+from xml.dom import minidom
 def get_result_from_check_report(path):
     time.sleep(3)
     logfile = open(path, "r")
@@ -13,4 +13,18 @@ def get_result_from_check_report(path):
                 print("Programmable power or ECU supply is under of control")
 
 
-fire.Fire(get_result_from_check_report)
+def get_result_from_xml(path):
+    time.sleep(3)
+    dom_obj = minidom.parse(path)
+    root = dom_obj.documentElement
+    nodes = root.getElementsByTagName("verdict")
+    print(nodes)
+    for node in nodes:
+        s = node.getAttribute("result")
+        if s == "pass":
+            print("Programmable power or ECU supply is under of control")
+        else:
+            raise Exception(print("Programmable power or ECU supply is out of control!!!! pls check it!!!!"))
+
+#get_result_from_xml("DetectPower_report.xml")
+fire.Fire(get_result_from_xml)
