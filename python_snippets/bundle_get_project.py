@@ -16,33 +16,34 @@ def check_txt(project_file):
         return False
     
 def write_project_file(source_file,target_file):
-    project_list =[]
-
+    count=0
     with open(target_file, "w") as f:
         logfile = open(source_file, "r")
         lines = logfile.readlines()
         for line in lines:
-            if "[project]" in line:
-                project = line.split("\n")
-                print("project row is {0}".format(project))
-                for i in project:
-                    if "project" in i:
-                        name = i.split(":")[1].split(",")
-                        print("project name is {0}".format(name))
-                        if name[0] == "All" or name[0] == "ALL":
-                            print("this is",name[0])
-                            for bundle in bundle_list:
-                                f.write(bundle + "\n")
-                        else:
+            if count < 1:
+                if "[project]" in line:
+                    project = line.split("\n")
+                    print("project row is {0}".format(project))
+                    count+=1
+                    for i in project:
+                        if "project" in i:
+                            name = i.split(":")[1].split(",")
+                            print("project name is {0}".format(name))
+                            if name[0] == "All" or name[0] == "ALL":
+                                print("this is",name[0])
+                                for bundle in bundle_list:
+                                    f.write(bundle + "\n")
+                            else:
 
-                            for j in name:
-                                if j in bundle_list:
-                                    f.write(j + "\n")
-                                else:
-                                    raise BaseException("param not in project name list!!! pls check it")
+                                for j in name:
+                                    if j in bundle_list:
+                                        f.write(j + "\n")
+                                    else:
+                                        raise BaseException("param not in project name list!!! pls check it")
     if check_txt(target_file):
-        print("======================get project name success========================")
+            print("======================get project name success========================")
     else:
         raise BaseException("=============commit message is not valid!!!! pls check it =================")
-#write_project_file("../git.txt","project.txt")
+#write_project_file("git.txt","project.txt")
 fire.Fire(write_project_file)
